@@ -128,12 +128,17 @@ while (i<len(AllCentralResults)):
         iteration["power"] = HawesResultsInterpolated[i]["power"] + BarnsleyResultsInterpolated[i]["power"] + HounslowResultsInterpolated[i]["power"]
         i+=1
 
-#Change format depending on input
-#if(outputFormat==csv):
-    #convert json format in csv format
-    
+"""
 #Display result of concatenation
-#print("Results of concatenation :")
+print("Results of concatenation :")
 for iteration in AllCentralResults:
     print(iteration)
+"""
+
+#Save results in file depending on format
+if(outputFormat=="json"):
+    with open('CentralsConcatenation.json','w') as jsonFile:
+        json.dump(AllCentralResults, jsonFile)
+#else:
+   #save in csv file 
 
